@@ -16,16 +16,16 @@ FrameWork minimo para hacer API´s en PHP.
 
 ### Como crear un controlador con distintos routers.
 
-1. Crear un fichero Ejemplo.php en la carpeta Controllers.
-2. Dar de alta en el fichero Ejemplo.php en /inc/ControllersColeccion.php.
+1. Crear un fichero EjemploController.php en la carpeta Controllers.
+2. Dar de alta en el fichero EjemploController.php en /inc/ControllersColeccion.php.
 ```ruby
 require_once __DIR__ . "/../Controllers/PlataController.php";
 ```
-3. Definir dentro de Ejemplo.php la clase EjemploController implementando la clase BaseController (el nombre de la clase siempre tiene que cumplir el nombre de espacio "Nombre"Controller).
+3. Definir dentro de EjemploController.php la clase EjemploController implementando la clase BaseController (el nombre de la clase siempre tiene que cumplir el nombre de espacio "Nombre"Controller).
 ```ruby
 class EjemploController extends BaseController
 ```
-4. Dentro de Ejemplo.php definir una variable privada con las definiciones de los Routers a utilizar siguiendo la siguiente estructura:
+4. Dentro de EjemploController.php definir una variable privada con las definiciones de los Routers a utilizar siguiendo la siguiente estructura:
 ```ruby
 array(
         "ROUTER" => array("VERBO", "METODO");
