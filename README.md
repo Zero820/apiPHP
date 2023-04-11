@@ -33,4 +33,20 @@ public function __construct()
 { 
         parent::__construct($this->_routes);
 }
-```  
+```
+6. Crear las funciones correspondientes expecificados en el campo "metodo" de la declaracion de los routers, las funciones reciben como parametros $peticion y $respuesta.
+```ruby
+protected function ListarParametros(Peticion $peticion, Respuesta $respuesta): void
+{
+        $resultado = json_encode(
+                array(
+                        'metodo' => 'ListarParametros',
+                        'Paramaetros-Cabecera' => $peticion->Parametros(),
+                        'Parametros-Cuerpo' => $peticion->Cuerpo(),
+                        'Campo multi valor' => array('Ejemplo 1' => 'patata 1', 'Ejemplo 2' => 'patata 2')
+                )
+        );
+        // retornamos una respuesta al cliente en formato JSON.
+        $respuesta->Enviar($resultado);
+}
+```
