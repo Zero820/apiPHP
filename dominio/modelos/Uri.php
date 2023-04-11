@@ -17,8 +17,8 @@
 
         public function Validar(string $router): bool
         {
-            $arroyRouter = $this->dividirCadena($router);
-            if($this->compararNumeroSegmentos($arroyRouter) && $this->compararPath($arroyRouter))
+            $arrayRouter = $this->dividirCadena($router);
+            if($this->compararNumeroSegmentos($arrayRouter) && $this->compararPath($arrayRouter))
             {
                 return true;
             }
