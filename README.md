@@ -27,7 +27,7 @@ private $_routes = array(
         "error" => array("verbo" => "PUT", "metodo" => "PeticionEjemploError")
 );
 ```
-5. En el contructor de la nueva clase EjemploController elevar la llamda al constructor base pasando como argumento la variable con la configuracion de los routers:
+5. En el contructor de la nueva clase EjemploController elevar la llamada al constructor base pasando como argumento la variable con la configuracion de los routers:
 ```ruby
 public function __construct()
 { 
