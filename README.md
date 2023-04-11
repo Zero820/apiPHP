@@ -12,8 +12,13 @@ require_once __DIR__ . "/../Controllers/PlataController.php";
 ```ruby
 class EjemploController extends BaseController
 ```
-6. Dentro de Ejemplo.php definir una variable privada con las definiciones de los Routers a utilizar siguiendo la siguiente estrucuro:
-        
+6. Dentro de Ejemplo.php definir una variable privada con las definiciones de los Routers a utilizar siguiendo la siguiente estructura:
+```ruby
+array(
+        "ROUTER" => array("VERBO", "METODO);
+);
+```  
+Ejemplo:
 ```ruby
 private $_routes = array(
         ":param1/:param2" => array("verbo" => "GET", "metodo" => "ListarParametros"),
