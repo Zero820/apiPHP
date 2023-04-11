@@ -1,6 +1,10 @@
 # apiPHP
 FrameWork minimo para hacer API´s en PHP.
 
+### Arquitectura
+
+- MVC
+
 ### Tecnología utilizada
 
 - PHP 8.2
@@ -8,6 +12,7 @@ FrameWork minimo para hacer API´s en PHP.
 ### ¿Como instalarlo?
 
 - Descargar la carpeta apiPHP en el directorio donde ejecuta el servidor Apache o IIS (puede ser cuarquier servidor web que soporte PHP).
+- En el caso de utilizar IIS se ha de instalar el modulo de redirección de páginas. Dirección de descarga: https://www.iis.net/downloads/microsoft/url-rewrite
 
 ### Como crear un controlador con distintos routers.
 
