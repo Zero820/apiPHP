@@ -7,7 +7,7 @@
 
         public function __construct() {
             $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-            $this->_segmentosUri = explode('/', $uri, $this->_posRouter + 1);
+            $this->_segmentosUri = $this->dividirCadena($uri, $this->_posRouter + 1);
         }
 
         public function SegmentoControlador(): string 
@@ -17,7 +17,7 @@
 
         public function Validar(string $router): bool
         {
-            $arroyRouter = explode("/", $router);
+            $arroyRouter = $this->dividirCadena($router);
             if($this->compararNumeroSegmentos($arroyRouter) && $this->compararPath($arroyRouter))
             {
                 return true;
@@ -30,7 +30,7 @@
             $paramatros = [];
             if($this->Validar($router))
             {
-                $arrayRouter = explode("/", $router);
+                $arrayRouter = $this->dividirCadena($router);
                 $arrayPath = $this->SegmentoPath();
                 $indiceParamatro = $this->obtenerIncideComienzoParametros($arrayRouter);
                 for ($posicion = $indiceParamatro; $posicion < count($arrayRouter); $posicion++)
@@ -64,7 +64,7 @@
 
         private function SegmentoPath(): array 
         {
-            return explode("/", $this->_segmentosUri[$this->_posRouter] ?? '');
+            return $this->dividirCadena($this->_segmentosUri[$this->_posRouter] ?? '');
         }
 
         private function compararNumeroSegmentos(array $router): bool
@@ -98,5 +98,10 @@
                 }
             }
             return ($tmpIndice == -1) ? count($router) : $tmpIndice;
+        }
+
+        private function dividirCadena(string $cadena, int $limite = -1): array{
+            if($limite == -1) return explode('/', $cadena);
+            return explode('/', $cadena, $limite);
         }
     }
