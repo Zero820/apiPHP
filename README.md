@@ -35,7 +35,7 @@ private $_routes = array(
         "error" => array("verbo" => "PUT", "metodo" => "PeticionEjemploError")
 );
 ```
-* Donde:
+** Donde:
 - ":param1/:param2" => array("verbo" => "GET", "metodo" => "ListarParametros") corresponde a la siguiente URI en su verbo GET, http://localhost/apiPHP/1/12
 - "listar/entidad/:param1" => array("verbo" => "GET", "metodo" => "ListarParametros") corresponde a la siguiente URI en su verbo GET, http://localhost/apiPHP/listar/entidad/1
 - "guardar/:id" => array("verbo" => "POST", "metodo" => "GuardarConCabeceraYCuerpo") corresponde a la siguiente URI en su verbo POST, http://localhost/apiPHP/guardar/1
