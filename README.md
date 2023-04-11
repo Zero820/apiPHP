@@ -35,7 +35,7 @@ public function __construct()
 }
 ```
 6. En el fichero controlador EjemploController.php, crear las funciones correspondientes especificadas en el campo "metodo" de la declaracion de los routers. 
-Las funciones reciben como parametros $peticion y $respuesta.
+Las funciones reciben como parametros "Peticion" y "Respuesta".
 ```ruby
 protected function ListarParametros(Peticion $peticion, Respuesta $respuesta): void
 {
