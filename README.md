@@ -35,6 +35,11 @@ private $_routes = array(
         "error" => array("verbo" => "PUT", "metodo" => "PeticionEjemploError")
 );
 ```
+* Donde:
+- ":param1/:param2" => array("verbo" => "GET", "metodo" => "ListarParametros") corresponde a la siguiente URI en su verbo GET, http://localhost/apiPHP/1/12
+- "listar/entidad/:param1" => array("verbo" => "GET", "metodo" => "ListarParametros") corresponde a la siguiente URI en su verbo GET, http://localhost/apiPHP/listar/entidad/1
+- "guardar/:id" => array("verbo" => "POST", "metodo" => "GuardarConCabeceraYCuerpo") corresponde a la siguiente URI en su verbo POST, http://localhost/apiPHP/guardar/1
+- "error" => array("verbo" => "PUT", "metodo" => "PeticionEjemploError") corresponde a la siguiente URI en su verbo PUT, http://localhost/apiPHP/error
 5. En el contructor de la nueva clase EjemploController elevar la llamada al constructor base pasando como argumento la variable con la configuracion de los routers:
 ```ruby
 public function __construct()
