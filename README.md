@@ -1,7 +1,15 @@
 # apiPHP
 Pequeño FrameWork para hacer API´s en PHP.
 
-### Como utilizarlo
+### Tecnología utilizada
+
+- PHP 8.2
+
+### ¿Como instalarlo?
+
+- Descargar la carpeta apiPHP en el directorio donde ejecuta el servidor Apache o IIS (puede ser cuarquier servidor web que soporte PHP).
+
+### Como crear un controlador con distintos routers.
 
 1. Crear un fichero Ejemplo.php en la carpeta Controllers.
 2. Dar de alta en el fichero Ejemplo.php en /inc/ControllersColeccion.php.
