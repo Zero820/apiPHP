@@ -1,5 +1,5 @@
 # apiPHP
-Pequeño FrameWork para hacer API´s en PHP.
+FrameWork minimo para hacer API´s en PHP.
 
 ### Tecnología utilizada
 
