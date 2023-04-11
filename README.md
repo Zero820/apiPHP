@@ -34,7 +34,8 @@ public function __construct()
         parent::__construct($this->_routes);
 }
 ```
-6. En el fichero controlador EjemploController.php, crear las funciones correspondientes expecificados en el campo "metodo" de la declaracion de los routers, las funciones reciben como parametros $peticion y $respuesta.
+6. En el fichero controlador EjemploController.php, crear las funciones correspondientes especificadas en el campo "metodo" de la declaracion de los routers. 
+Las funciones reciben como parametros $peticion y $respuesta.
 ```ruby
 protected function ListarParametros(Peticion $peticion, Respuesta $respuesta): void
 {
