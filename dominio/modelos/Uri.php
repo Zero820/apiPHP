@@ -43,16 +43,12 @@
 
         public function Cuerpo(): array
         {
-            if($_SERVER['REQUEST_METHOD'] !== "GET"){
-                if($_POST)
-                {
-                    return ($_POST);
-                }
+            if ($_SERVER['REQUEST_METHOD'] !== "GET") {
+                $postData = $_POST ?: null;
                 $rawData = file_get_contents("php://input");
-                if(!empty($rawData))
-                {
-                    return json_decode(file_get_contents('php://input'), true);
-                }
+                $jsonData = !empty($rawData) ? json_decode($rawData, true) : null;
+            
+                return $jsonData ?? $postData ?? [];
             }
             return [];
         }
@@ -74,17 +70,11 @@
         
         private function compararPath(array $router): bool
         {
-            $iguales = true;
             $arrayPath = $this->SegmentoPath();
             $indiceMaximo = $this->obtenerIncideComienzoParametros($router);
-            for ($posicion = 0; $posicion < $indiceMaximo; $posicion++)
-            {
-                if($iguales == true && $arrayPath[$posicion] !== $router[$posicion])
-                {
-                    $iguales = false;
-                } 
-            }
-            return $iguales;
+            $routerSinParametros = array_slice($router, 0, $indiceMaximo);
+            $pathSinParametros = array_slice($arrayPath, 0, $indiceMaximo);
+            return empty(array_diff($routerSinParametros, $pathSinParametros));
         }
 
         private function obtenerIncideComienzoParametros(array $router): int
@@ -101,7 +91,6 @@
         }
 
         private function dividirCadena(string $cadena, int $limite = -1): array{
-            if($limite == -1) return explode('/', $cadena);
-            return explode('/', $cadena, $limite);
+            return ($limite == -1) ? explode('/', $cadena) : explode('/', $cadena, $limite);
         }
     }
