@@ -31,8 +31,8 @@
             if($this->Validar($router))
             {
                 $arrayRouter = $this->dividirCadena($router);
-                $arrayPath = $this->SegmentoPath();
-                $indiceParamatro = $this->obtenerIncideComienzoParametros($arrayRouter);
+                $arrayPath = $this->segmentoPath();
+                $indiceParamatro = $this->obtenerPosicionParametros($arrayRouter);
                 for ($posicion = $indiceParamatro; $posicion < count($arrayRouter); $posicion++)
                 {
                     $paramatros[$arrayRouter[$posicion]] = $arrayPath[$posicion];
@@ -58,26 +58,26 @@
             return $_SERVER['REQUEST_METHOD'];
         }
 
-        private function SegmentoPath(): array 
+        private function segmentoPath(): array 
         {
             return $this->dividirCadena($this->_segmentosUri[$this->_posRouter] ?? '');
         }
 
         private function compararNumeroSegmentos(array $router): bool
         {
-            return count($this->SegmentoPath()) == count($router);
+            return count($this->segmentoPath()) == count($router);
         }
         
         private function compararPath(array $router): bool
         {
-            $arrayPath = $this->SegmentoPath();
-            $indiceMaximo = $this->obtenerIncideComienzoParametros($router);
+            $arrayPath = $this->segmentoPath();
+            $indiceMaximo = $this->obtenerPosicionParametros($router);
             $routerSinParametros = array_slice($router, 0, $indiceMaximo);
             $pathSinParametros = array_slice($arrayPath, 0, $indiceMaximo);
             return empty(array_diff($routerSinParametros, $pathSinParametros));
         }
 
-        private function obtenerIncideComienzoParametros(array $router): int
+        private function obtenerPosicionParametros(array $router): int
         {
             $tmpIndice = -1;
             foreach ($router as $indice => $segmento)
