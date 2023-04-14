@@ -1,9 +1,9 @@
 <?php
-    require __DIR__."/inc/Core.php";
+    require __DIR__."/src/inc/Core.php";
     require __DIR__."/Filtros/EjemploFiltro.php";
     
     $aplicacion = new AplicacionController();
-    
+
     $aplicacion->EstablecerCabecera("Access-Control-Allow-Origin: *");
     $aplicacion->EstablecerCabecera('Access-Control-Allow-Credentials: true');
     $aplicacion->EstablecerCabecera("Content-Type: application/json; charset=UTF-8");
