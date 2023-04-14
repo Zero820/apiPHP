@@ -9,23 +9,30 @@
             $this->_directorioController = __DIR__ . "/../../Controllers/";
         }
 
-        public function Ejecutar()
-        {
-            $controlador = $this->obtenerObjetoControlador();
-            $instancia = $controlador->newInstance();
-            $instancia->Ejecutar();
-        }
-
         public function EstablecerCabecera(string $cabecera){
             header($cabecera);
         }
 
-        public function EstablecerFiltro($filtro){
+        public function EstablecerFiltro(IFiltro $filtro){
             array_push($this->_filtros, $filtro);
         }
 
-        private function ejecutarFiltros(){
-            return null;
+        public function Ejecutar()
+        {
+            $this->ejecutarFiltros();
+            $this->ejecutarController();
+        }
+
+        private function ejecutarFiltros(): void{
+            foreach ($this->_filtros as $filtro) {
+                $filtro->Ejecutar();
+            }
+        }
+
+        private function ejecutarController(): void{
+            $controlador = $this->obtenerObjetoControlador();
+            $instancia = $controlador->newInstance();
+            $instancia->Ejecutar();
         }
 
         private function obtenerObjetoControlador() {
