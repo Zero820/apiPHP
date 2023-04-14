@@ -27,7 +27,7 @@
                     exit;
                 }
             }
-            $respuesta->Error("No se encuentra un router valido con el verbo seleccionado.");
+            $respuesta->Error("No se encuentra una ruta valida con el verbo enviado.");
         }
 
         private function existeMetodo(string $metodo): bool

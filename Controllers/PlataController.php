@@ -21,7 +21,7 @@
                     'cabecera' => $peticion->Parametros(),
                     'cuerpo' => $peticion->Cuerpo(),
                     'Campo multi valor' => array('Ejemplo 1' => 'patata 1', 'Ejemplo 2' => 'patata 2')
-                ),
+                )
             );
             $respuesta->Enviar($resultado);
         }
@@ -34,7 +34,7 @@
                     'cabecera' => $peticion->Parametros(),
                     'cuerpo' => $peticion->Cuerpo(),
                     'Campo multi valor' => array('Ejemplo 1' => 'patata 1', 'Ejemplo 2' => 'patata 2')
-                ),
+                )
             );
             $respuesta->Enviar($resultado, 'HTTP/1.1 201 OK');
         }
