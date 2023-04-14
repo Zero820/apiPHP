@@ -1,5 +1,5 @@
 # apiPHP
-FrameWork minimo para hacer API´s en PHP.
+Mini FrameWork para hacer API´s en PHP orientado en .NET Core.
 
 ### Arquitectura
 
