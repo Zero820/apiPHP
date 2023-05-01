@@ -2,7 +2,6 @@
     class Uri
     {
         private $_segmentosUri;
-        private $_posControlador = 2;
         private $_posRouter = 3;
 
         public function __construct() {
@@ -12,17 +11,13 @@
 
         public function SegmentoControlador(): string 
         {
-            return $this->_segmentosUri[$this->_posControlador];
+            return $this->_segmentosUri[$this->_posRouter -1];
         }
 
         public function Validar(string $router): bool
         {
             $arrayRouter = $this->dividirCadena($router);
-            if($this->compararNumeroSegmentos($arrayRouter) && $this->compararPath($arrayRouter))
-            {
-                return true;
-            }
-            return false;
+            return ($this->compararNumeroSegmentos($arrayRouter) && $this->compararPath($arrayRouter));
         }
 
         public function Parametros(string $router): array
@@ -43,7 +38,7 @@
 
         public function Cuerpo(): array
         {
-            if ($_SERVER['REQUEST_METHOD'] !== "GET") {
+            if ($this->Verbo() !== "GET") {
                 $postData = $_POST ?: null;
                 $rawData = file_get_contents("php://input");
                 $jsonData = !empty($rawData) ? json_decode($rawData, true) : null;
