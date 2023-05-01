@@ -1,5 +1,5 @@
 <?php
-    class PlataController extends BaseController
+    class EjemploController extends BaseController
     {
         private $_routes = array(
             ":param1/:param2" => array("verbo" => "GET", "metodo" => "ListarParametros"),
